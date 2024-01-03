@@ -12,8 +12,8 @@ const Hero = () => {
           Proficient in the MERN stack and frameworks like Flask and Django, 
           I am well-equipped to develop end-to-end solutions. 
           My commitment to personal growth, passion for creating impactful experiences, 
-          and collaborative nature make me a suitable candidate for anyone seeking a 
-          junior developer who can contribute to innovative projects and thrive in a team environment. 
+          and collaborative nature make me a suitable candidate for anyone seeking an 
+          Engineer who can contribute to innovative projects and thrive in a team environment. 
         </p>
       </div>
       <div className="hero-image">
