@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-content">
-        <h2>Hi, I'm Samuel Onoja</h2>
+        <h2>Hi,</h2>
         
         <p>I am a dynamic and ambitious Fullstack Software Engineer with 
           expertise in languages such as C, Python, and JavaScript. 
