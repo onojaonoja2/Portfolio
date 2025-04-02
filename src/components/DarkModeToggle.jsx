@@ -1,25 +1,22 @@
-// src/components/DarkModeToggle.jsx
 import React, { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(() => {
-    // Check localStorage or system preference
     const savedMode = localStorage.getItem('darkMode');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    console.log('Initial dark mode:', savedMode, prefersDark); // Debugging
     return savedMode === 'true' || (savedMode === null && prefersDark);
   });
 
   useEffect(() => {
-    // Apply dark mode class to html element
+    console.log('Dark mode state updated:', darkMode); // Debugging
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-    
-    // Save preference to localStorage
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
