@@ -95,9 +95,7 @@ const Hero = () => {
           className="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-gray-200 dark:border-gray-700" 
         />
       </motion.div>
-      <div className="bg-gray-100 dark:bg-dark-bg text-gray-900 dark:text-gray-100 p-4">
-  Test Dark Mode
-</div>
+      
     </section>
   );
 };
