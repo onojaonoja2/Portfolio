@@ -81,10 +81,16 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Developers Tales",
+      title: "Customer Location Pinning App",
+      description: "Developers Tales is a deployed project built in React.js, utilizing the Hacker News API. It allows users to browse and search for developer-related news, articles, and stories. The project helped me enhance my React.js skills, API integration, and state management.",
+      link: "https://yip-omega.vercel.app/",
+      linkText: "Location Pinning App"
+    },
+    {
+      title: "PlanAssist",
       description: "Developers Tales is a deployed project built in React.js, utilizing the Hacker News API. It allows users to browse and search for developer-related news, articles, and stories. The project helped me enhance my React.js skills, API integration, and state management.",
       link: "https://developerstales-6693c.web.app/",
-      linkText: "Developers Tales"
+      linkText: "PlanAssist"
     },
     {
       title: "Developers Tales",
@@ -93,13 +99,7 @@ const Projects = () => {
       linkText: "Developers Tales"
     },
     {
-      title: "Developers Tales",
-      description: "Developers Tales is a deployed project built in React.js, utilizing the Hacker News API. It allows users to browse and search for developer-related news, articles, and stories. The project helped me enhance my React.js skills, API integration, and state management.",
-      link: "https://developerstales-6693c.web.app/",
-      linkText: "Developers Tales"
-    },
-    {
-      title: "confByte Academy",
+      title: "ConfByte Academy",
       description: "confByte Academy is a website built for an academy and hosted on GitHub Pages. It provides information about courses, instructors, and enrollment details. Building this website allowed me to improve my HTML and CSS skills and understand the process of deploying a website on GitHub Pages.",
       link: "https://onojaonoja2.github.io",
       linkText: "ConfByte Academy"

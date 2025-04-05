@@ -25,8 +25,12 @@ const Header = () => {
               <a href="#about" className="text-white hover:text-gray-300 transition-colors">About</a>
             </motion.li>
             <motion.li whileHover={{ scale: 1.1 }}>
+              <a href="#skills" className="text-white hover:text-gray-300 transition-colors">Tools</a>
+            </motion.li>
+            <motion.li whileHover={{ scale: 1.1 }}>
               <a href="#projects" className="text-white hover:text-gray-300 transition-colors">Projects</a>
             </motion.li>
+            
             <motion.li whileHover={{ scale: 1.1 }}>
               <a href="#contact" className="text-white hover:text-gray-300 transition-colors">Contact</a>
             </motion.li>

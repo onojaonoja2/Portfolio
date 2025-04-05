@@ -75,13 +75,21 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-lg text-gray-600 dark:text-gray-300 max-w-xl"
         >
-          I am a dynamic and ambitious Fullstack Software Engineer with 
-          expertise in languages such as C, Python, and JavaScript. 
-          Proficient in the MERN stack and frameworks like Flask and Django, 
+          😊 I am a Fullstack Software Engineer who thrives on tackling complex challenges with strong 
+          problem-solving skills, a design-centric mindset, and a collaborative spirit, 
+          complemented by my technical expertise. 
           I am well-equipped to develop end-to-end solutions. 
+          
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-lg text-gray-600 dark:text-gray-300 max-w-xl"
+        >
           My commitment to personal growth, passion for creating impactful experiences, 
-          and collaborative nature make me a suitable candidate for anyone seeking an 
-          Engineer who can contribute to innovative projects and thrive in a team environment.
+          and collaborative nature make me a suitable candidate for anyone 
+          seeking an Engineer who can contribute to innovative projects and thrive in a team environment. 😊
         </motion.p>
       </div>
       <motion.div 
