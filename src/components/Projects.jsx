@@ -82,37 +82,37 @@ const Projects = () => {
   const projects = [
     {
       title: "Customer Location Pinning App",
-      description: "Developers Tales is a deployed project built in React.js, utilizing the Hacker News API. It allows users to browse and search for developer-related news, articles, and stories. The project helped me enhance my React.js skills, API integration, and state management.",
+      description: "Developed a real-time customer location pinning application leveraging the Google Location API to pinpoint user coordinates. Built with React and Vite for a fast frontend, and Nest.js for enhanced features. Deployed the backend on Render and the frontend on Vercel, gaining experience in end-to-end deployment workflows.",
       link: "https://yip-omega.vercel.app/",
       linkText: "Location Pinning App"
     },
     {
       title: "PlanAssist",
-      description: "Developers Tales is a deployed project built in React.js, utilizing the Hacker News API. It allows users to browse and search for developer-related news, articles, and stories. The project helped me enhance my React.js skills, API integration, and state management.",
-      link: "https://developerstales-6693c.web.app/",
+      description: "Engineered PlanAssist, a task management application, utilizing Next.js for a robust full-stack framework and Prisma as an ORM to interact with a PostgreSQL database hosted on Railway. Implemented features for task creation, assignment, and tracking, sharpening skills in database management and server-side development.",
+      link: "https://plan-assist.vercel.app/",
       linkText: "PlanAssist"
     },
     {
       title: "Developers Tales",
-      description: "Developers Tales is a deployed project built in React.js, utilizing the Hacker News API. It allows users to browse and search for developer-related news, articles, and stories. The project helped me enhance my React.js skills, API integration, and state management.",
+      description: "Developed a dynamic news browsing application, Developers Tales, using React.js to consume and display data from the Hacker News API. Implemented features for browsing and searching developer-related content, enhancing skills in API integration and React state management.",
       link: "https://developerstales-6693c.web.app/",
       linkText: "Developers Tales"
     },
     {
       title: "ConfByte Academy",
-      description: "confByte Academy is a website built for an academy and hosted on GitHub Pages. It provides information about courses, instructors, and enrollment details. Building this website allowed me to improve my HTML and CSS skills and understand the process of deploying a website on GitHub Pages.",
+      description: "Constructed the ConfByte Academy website, providing information on courses, instructors, and enrollment. Built with HTML and CSS and deployed on GitHub Pages, refining foundational web development skills and understanding the deployment process on static hosting platforms.",
       link: "https://onojaonoja2.github.io",
       linkText: "ConfByte Academy"
     },
     {
       title: "AirBnB Clone",
-      description: "The AirBnB Clone is a website clone of the popular accommodation marketplace. It was developed as part of my software engineering course. The backend of this project was built using Flask, providing functionalities like user authentication, property listings, and booking management.",
+      description: "Contributed to building an AirBnB Clone, focusing on backend development with Flask to enable user authentication, property listings, and booking management. This project deepened understanding of server-side logic and database interactions.",
       link: "https://github.com/onojaonoja2/AirBnB_clone_v4",
       linkText: "AirBnB Clone"
     },
     {
       title: "Simple Shell",
-      description: "Simple Shell is a collaborative project I developed together with my partner as part of my software engineering course using the C programming language and Bash scripting. It is a basic implementation of a command-line shell with functionalities like executing commands, handling input/output, and managing processes.",
+      description: "Collaboratively developed Simple Shell, a command-line interpreter, using C and Bash scripting. Implemented core shell functionalities such as command execution, I/O handling, and process management, gaining practical experience in system-level programming.",
       link: "https://github.com/Kerryjossy/simple_shell",
       linkText: "Simple Shell"
     }
