@@ -1,9 +1,15 @@
 // src/components/Header.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+// import { Menu, X } from 'lucide-react';
 import DarkModeToggle from './DarkModeToggle';
 
 const Header = () => {
+  
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <motion.header 
       initial={{ y: -100 }}
@@ -14,6 +20,7 @@ const Header = () => {
       <nav className="flex justify-between items-center max-w-6xl mx-auto">
         <motion.h1 
           whileHover={{ scale: 1.05 }}
+          onClick={scrollToTop}
           className="text-white text-2xl font-bold"
         >
           Samuel Onoja Onoja
