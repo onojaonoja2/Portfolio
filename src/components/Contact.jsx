@@ -153,7 +153,7 @@ const Contact = () => {
           delay={5}
         >
           <a 
-            href="https://drive.google.com/file/d/1Qk0fVmx0gEEqZAZF1G-NB_gQp0bcczYN/view?usp=sharing" 
+            href="https://drive.google.com/file/d/15xF2_7K_5fCEmd-w_XnWoLeaIh_ZamrW/view?usp=drive_link" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"

@@ -89,7 +89,7 @@ const Projects = () => {
     {
       title: "PlanAssist",
       description: "Engineered PlanAssist, a task management application, utilizing Next.js for a robust full-stack framework and Prisma as an ORM to interact with a PostgreSQL database hosted on Railway. Implemented features for task creation, assignment, and tracking, sharpening skills in database management and server-side development.",
-      link: "https://plan-assist.vercel.app/",
+      link: "https://github.com/onojaonoja2/PlanAssist",
       linkText: "PlanAssist"
     },
     {
