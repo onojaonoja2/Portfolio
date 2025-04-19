@@ -55,7 +55,8 @@ const Header = () => {
         {isMobile ? (
           // Mobile View with Menu Icon and Breadcrumbs
           <div className="flex items-center">
-            <button onClick={toggleMenu} className="text-white focus:outline-none">
+            <DarkModeToggle /> {/* Place DarkModeToggle here in mobile view */}
+            <button onClick={toggleMenu} className="text-white focus:outline-none ml-4">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
