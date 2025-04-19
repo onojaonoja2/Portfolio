@@ -1,0 +1,54 @@
+/* Hero.css */
+
+/* Base styles for larger screens */
+.hero-section {
+    /* Existing styles remain */
+  }
+  
+  .hero-content {
+    /* Existing styles remain */
+  }
+  
+  .hero-image-container {
+    width: 192px; /* Equivalent to w-48 in Tailwind (48 * 4px) */
+    height: 192px; /* Equivalent to h-48 in Tailwind */
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Styles for medium screens (e.g., tablets - adjust breakpoint as needed) */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column; /* Stack content vertically */
+      align-items: center;
+      text-align: center;
+    }
+  
+    .hero-content {
+      margin-bottom: 2rem; /* Add some space below text */
+    }
+  
+    .hero-image-container {
+      width: 150px; /* Smaller size for tablets */
+      height: 150px;
+    }
+  }
+  
+  /* Styles for small screens (e.g., mobile phones - adjust breakpoint as needed) */
+  @media (max-width: 480px) {
+    .hero-image-container {
+      width: 120px; /* Even smaller for phones */
+      height: 120px;
+    }
+  }
+  
+  /* Optional: For very small screens, you might want to further reduce size or adjust margins */
+  @media (max-width: 320px) {
+    .hero-image-container {
+      width: 100px;
+      height: 100px;
+    }
+  }

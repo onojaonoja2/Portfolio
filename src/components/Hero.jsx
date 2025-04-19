@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import profilePic from '../assets/profile-pic.jpg';
+import './Hero.css';
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -57,7 +58,7 @@ const Hero = () => {
     <section 
       ref={sectionRef}
       id="about" 
-      className="flex justify-between items-center p-10 bg-white dark:bg-dark-surface mt-20 shadow-md rounded-lg max-w-6xl mx-auto transition-colors"
+      className="hero-section flex justify-between items-center p-10 bg-white dark:bg-dark-surface mt-20 shadow-md rounded-lg max-w-6xl mx-auto transition-colors"
     >
       <div className="hero-content" ref={textRef}>
         <motion.h2 
@@ -94,13 +95,13 @@ const Hero = () => {
       </div>
       <motion.div 
         ref={imageRef}
-        className="hero-image"
+        className="hero-image-container"
         whileHover={{ scale: 1.05 }}
       >
         <img 
           src={profilePic} 
           alt="Samuel Onoja" 
-          className="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-gray-200 dark:border-gray-700" 
+          className="profile-image w-48 h-48 rounded-full object-cover shadow-lg border-4 border-gray-200 dark:border-gray-700" 
         />
       </motion.div>
       

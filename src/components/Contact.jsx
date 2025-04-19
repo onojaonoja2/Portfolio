@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Linkedin, Github, Twitter, FileText } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -99,10 +100,19 @@ const Contact = () => {
           icon={<Phone className="w-6 h-6 text-blue-600 dark:text-blue-400" />}
           delay={1}
         >
-          <div className="dark:text-gray-300">
-            <span className="mr-2">+2348035291021</span>
-            <span className="text-gray-400 dark:text-gray-500">|</span>
-            <span className="ml-2">+2347080904982</span>
+           <div className="dark:text-gray-300 flex items-center">
+           <span>+2348035291021</span>
+           <span className="text-gray-400 dark:text-gray-500 mx-2">|</span> {/* Reduced margin */}
+            <a
+              href="https://wa.me/2347080904982" // WhatsApp link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 hover:text-green-500" // Optional: Style hover
+            >
+              <FaWhatsapp className="w-6 h-6 text-green-500" /> {/* WhatsApp icon */}
+              <span>+2347080904982</span>
+            </a>
+            
           </div>
         </ContactItem>
         
