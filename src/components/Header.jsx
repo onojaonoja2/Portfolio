@@ -41,13 +41,13 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full bg-gray-800 dark:bg-dark-surface p-5 z-50 transition-colors"
+      className="fixed top-0 left-0 w-full bg-white/70 dark:bg-dark-bg/70 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-800/50 p-5 z-50 transition-colors"
     >
-      <nav className="flex justify-between items-center max-w-6xl mx-auto">
+      <nav className="flex justify-between items-center max-w-7xl mx-auto px-4">
         <motion.h1
           whileHover={{ scale: 1.05 }}
           onClick={scrollToTop}
-          className="text-white text-2xl font-bold cursor-pointer"
+          className="text-gray-900 dark:text-white text-2xl font-bold cursor-pointer tracking-tight"
         >
           Samuel Onoja
         </motion.h1>
@@ -56,7 +56,7 @@ const Header = () => {
           // Mobile View with Menu Icon and Breadcrumbs
           <div className="flex items-center">
             <DarkModeToggle /> {/* Place DarkModeToggle here in mobile view */}
-            <button onClick={toggleMenu} className="text-white focus:outline-none ml-4">
+            <button onClick={toggleMenu} className="text-gray-900 dark:text-white focus:outline-none ml-4">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
@@ -120,24 +120,24 @@ const Header = () => {
         ) : (
           // Desktop View with Regular Links
           <div className="flex items-center space-x-8">
-            <ul className="flex space-x-5">
-              <motion.li whileHover={{ scale: 1.1 }}>
-                <Link to="about" smooth={true} duration={500} className="text-white hover:text-gray-300 transition-colors cursor-pointer">
+            <ul className="flex space-x-8">
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <Link to="about" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
                   About
                 </Link>
               </motion.li>
-              <motion.li whileHover={{ scale: 1.1 }}>
-                <Link to="skills" smooth={true} duration={500} className="text-white hover:text-gray-300 transition-colors cursor-pointer">
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <Link to="skills" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
                   Tools
                 </Link>
               </motion.li>
-              <motion.li whileHover={{ scale: 1.1 }}>
-                <Link to="projects" smooth={true} duration={500} className="text-white hover:text-gray-300 transition-colors cursor-pointer">
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <Link to="projects" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
                   Projects
                 </Link>
               </motion.li>
-              <motion.li whileHover={{ scale: 1.1 }}>
-                <Link to="contact" smooth={true} duration={500} className="text-white hover:text-gray-300 transition-colors cursor-pointer">
+              <motion.li whileHover={{ scale: 1.05 }}>
+                <Link to="contact" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
                   Contact
                 </Link>
               </motion.li>

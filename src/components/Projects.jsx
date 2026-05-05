@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectCard = ({ title, description, link, linkText, index }) => {
+const ProjectCard = ({ title, description, link, linkText, image, index }) => {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -34,20 +34,42 @@ const ProjectCard = ({ title, description, link, linkText, index }) => {
   return (
     <div 
       ref={cardRef}
-      className="bg-white dark:bg-dark-surface p-6 rounded-lg shadow-lg transition-all hover:shadow-xl dark:shadow-gray-800"
+      className="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] transition-all hover:-translate-y-2 hover:shadow-2xl border border-gray-100 dark:border-gray-800 flex flex-col h-full overflow-hidden group"
     >
-      <motion.div whileHover={{ y: -5 }}>
-        <h3 className="text-2xl font-bold mb-3 dark:text-white">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+      <div className="relative w-full h-48 mb-6 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 flex-shrink-0">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          className="w-full h-full"
+        >
+          <img 
+            src={image || `https://image.thum.io/get/width/600/crop/400/${link}`} 
+            alt={`${title} screenshot`} 
+            className="w-full h-full object-cover object-top"
+            loading="lazy"
+            onError={(e) => {
+              e.target.onerror = null; 
+              e.target.src = 'https://via.placeholder.com/600x400?text=Project+Preview';
+            }}
+          />
+        </motion.div>
+      </div>
+      
+      <div className="flex flex-col flex-grow">
+        <h3 className="text-2xl font-bold mb-3 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-6 flex-grow leading-relaxed">{description}</p>
         <a 
           href={link} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors font-medium"
+          className="inline-flex items-center text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 transition-colors font-semibold group/link"
         >
           {linkText}
+          <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
         </a>
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -81,40 +103,46 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "ByteOps Digital",
+      description: "A premier provider of tech training, IT consultancy, and digital solutions. Offering expert web development, AI automation, and business innovation services to transform businesses.",
+      link: "https://www.byteops.digital/",
+      linkText: "Visit ByteOps",
+      image: "/byteOps Screen Shot.png"
+    },
+    {
+      title: "Ekonex",
+      description: "A digital education platform empowering the next generation of learners with AI-driven insights, seamless content delivery, and a variety of online courses.",
+      link: "https://ekonex.vercel.app/",
+      linkText: "Visit Ekonex",
+      image: "/Ekonex Screen.png"
+    },
+    {
+      title: "TestWise",
+      description: "A secure and intelligent online examination platform designed for smart exam management.",
+      link: "https://test-wise-r4ls.vercel.app/",
+      linkText: "Visit TestWise",
+      image: "/TestWise System.png"
+    },
+    {
       title: "Customer Location Pinning App",
-      description: "Developed a real-time customer location pinning application leveraging the Google Location API to pinpoint user coordinates. Built with React and Vite for a fast frontend, and Nest.js for enhanced features. Deployed the backend on Render and the frontend on Vercel, gaining experience in end-to-end deployment workflows.",
+      description: "Developed a real-time customer location pinning application leveraging the Google Location API to pinpoint user coordinates. Built with React and Vite for a fast frontend, and Nest.js for enhanced features.",
       link: "https://yip-omega.vercel.app/",
-      linkText: "Location Pinning App"
+      linkText: "Location Pinning App",
+      image: "/customerlocation_screenshot.png"
     },
     {
       title: "PlanAssist",
-      description: "Engineered PlanAssist, a task management application, utilizing Next.js for a robust full-stack framework and Prisma as an ORM to interact with a PostgreSQL database hosted on Railway. Implemented features for task creation, assignment, and tracking, sharpening skills in database management and server-side development.",
+      description: "Engineered PlanAssist, a task management application, utilizing Next.js for a robust full-stack framework and Prisma as an ORM to interact with a PostgreSQL database hosted on Railway.",
       link: "https://github.com/onojaonoja2/PlanAssist",
-      linkText: "PlanAssist"
+      linkText: "PlanAssist",
+      image: "/plannAssist_screenshot.png"
     },
     {
       title: "Developers Tales",
-      description: "Developed a dynamic news browsing application, Developers Tales, using React.js to consume and display data from the Hacker News API. Implemented features for browsing and searching developer-related content, enhancing skills in API integration and React state management.",
+      description: "Developed a dynamic news browsing application, Developers Tales, using React.js to consume and display data from the Hacker News API. Implemented features for browsing and searching developer-related content.",
       link: "https://developerstales-6693c.web.app/",
-      linkText: "Developers Tales"
-    },
-    {
-      title: "ConfByte Academy",
-      description: "Constructed the ConfByte Academy website, providing information on courses, instructors, and enrollment. Built with HTML and CSS and deployed on GitHub Pages, refining foundational web development skills and understanding the deployment process on static hosting platforms.",
-      link: "https://onojaonoja2.github.io",
-      linkText: "ConfByte Academy"
-    },
-    {
-      title: "AirBnB Clone",
-      description: "Contributed to building an AirBnB Clone, focusing on backend development with Flask to enable user authentication, property listings, and booking management. This project deepened understanding of server-side logic and database interactions.",
-      link: "https://github.com/onojaonoja2/AirBnB_clone_v4",
-      linkText: "AirBnB Clone"
-    },
-    {
-      title: "Simple Shell",
-      description: "Collaboratively developed Simple Shell, a command-line interpreter, using C and Bash scripting. Implemented core shell functionalities such as command execution, I/O handling, and process management, gaining practical experience in system-level programming.",
-      link: "https://github.com/Kerryjossy/simple_shell",
-      linkText: "Simple Shell"
+      linkText: "Developers Tales",
+      image: "/developer_tales_screenshots.png"
     }
   ];
 
@@ -122,15 +150,19 @@ const Projects = () => {
     <section 
       ref={sectionRef}
       id="projects" 
-      className="py-16 max-w-6xl mx-auto"
+      className="py-24 max-w-7xl mx-auto px-4"
     >
-      <h2 
-        ref={headingRef}
-        className="text-3xl font-bold text-center mb-10 bg-gray-100 dark:bg-gray-800 py-5 rounded-lg shadow-sm transition-colors"
-      >
-        Projects
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+      <div className="text-center mb-16">
+        <h2 
+          ref={headingRef}
+          className="inline-block text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 mb-4"
+        >
+          Featured Projects
+        </h2>
+        <div className="w-24 h-1.5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mx-auto"></div>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <ProjectCard 
             key={index}
@@ -138,6 +170,7 @@ const Projects = () => {
             description={project.description}
             link={project.link}
             linkText={project.linkText}
+            image={project.image}
             index={index}
           />
         ))}

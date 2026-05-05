@@ -10,6 +10,8 @@ import { SiNextdotjs, SiNestjs, SiVite, SiReact, SiJavascript, SiTypescript, SiA
   SiPostgresql,
   SiMongodb,
   SiMysql,
+  SiLaravel,
+  SiVuedotjs,
 } from 'react-icons/si';
 
 const skills = [
@@ -29,23 +31,35 @@ const skills = [
   { name: 'PostgreSQL', icon: <SiPostgresql className="w-12 h-12 text-blue-700 dark:text-blue-500" /> },
   { name: 'MongoDB', icon: <SiMongodb className="w-12 h-12 text-green-600 dark:text-green-400" /> },
   { name: 'MySQL', icon: <SiMysql className="w-12 h-12 text-blue-600 dark:text-blue-400" /> },
+  { name: 'Laravel', icon: <SiLaravel className="w-12 h-12 text-red-500" /> },
+  { name: 'Vue.js', icon: <SiVuedotjs className="w-12 h-12 text-green-500" /> },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-16 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-inner max-w-6xl mx-auto my-16 p-8 transition-colors">
-      <h2 className="text-3xl font-bold text-center mb-8 dark:text-white">Tools</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.1 }}
-            className="flex flex-col items-center space-y-2"
-          >
-            {skill.icon}
-            <span className="text-gray-800 dark:text-gray-300 text-sm font-medium">{skill.name}</span>
-          </motion.div>
-        ))}
+    <section id="skills" className="py-24 max-w-7xl mx-auto px-4">
+      <div className="text-center mb-16">
+        <h2 className="inline-block text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 mb-4">
+          Tech Stack
+        </h2>
+        <div className="w-24 h-1.5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full mx-auto"></div>
+      </div>
+      
+      <div className="bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-gray-100 dark:border-gray-800">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-12 gap-x-8 justify-items-center">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.1, y: -5 }}
+              className="flex flex-col items-center space-y-4 group"
+            >
+              <div className="p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 shadow-sm group-hover:shadow-md transition-shadow">
+                {skill.icon}
+              </div>
+              <span className="text-gray-700 dark:text-gray-300 text-sm font-semibold tracking-wide">{skill.name}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

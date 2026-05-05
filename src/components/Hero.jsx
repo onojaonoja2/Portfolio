@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import profilePic from '../assets/profile-pic.jpg';
+import profilePic from '../../public/Professional_head_shot.png';
 import './Hero.css';
 
 // Register the ScrollTrigger plugin
@@ -58,51 +58,68 @@ const Hero = () => {
     <section 
       ref={sectionRef}
       id="about" 
-      className="hero-section flex justify-between items-center p-10 bg-white dark:bg-dark-surface mt-20 shadow-md rounded-lg max-w-6xl mx-auto transition-colors"
+      className="hero-section flex flex-col-reverse md:flex-row justify-between items-center p-8 md:p-16 mt-24 max-w-7xl mx-auto rounded-3xl relative"
     >
-      <div className="hero-content" ref={textRef}>
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-violet-400/20 dark:bg-violet-900/20 blur-[100px] rounded-full -z-10"></div>
+      
+      <div className="hero-content mt-10 md:mt-0 max-w-2xl" ref={textRef}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="inline-flex items-center space-x-2 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-4 py-2 rounded-full mb-6 font-medium text-sm"
+        >
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-violet-500"></span>
+          </span>
+          <span>Available for new opportunities</span>
+        </motion.div>
+        
         <motion.h2 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl font-bold mb-5 dark:text-white"
+          className="text-5xl md:text-7xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight"
         >
-          Hi,
+          Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400">Samuel</span>
         </motion.h2>
         
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg text-gray-600 dark:text-gray-300 max-w-xl"
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed"
         >
-          😊 I am a Fullstack Software Engineer who thrives on tackling complex challenges with strong 
-          problem-solving skills, a design-centric mindset, and a collaborative spirit, 
-          complemented by my technical expertise. 
-          I am well-equipped to develop end-to-end solutions. 
-          
+          A Fullstack Software Engineer who thrives on tackling complex challenges with strong 
+          problem-solving skills, a design-centric mindset, and a collaborative spirit. 
+          I am well-equipped to develop elegant, end-to-end solutions. 
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg text-gray-600 dark:text-gray-300 max-w-xl"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed"
         >
-          My commitment to personal growth, passion for creating impactful experiences, 
-          and collaborative nature make me a suitable candidate for anyone 
-          seeking an Engineer who can contribute to innovative projects and thrive in a team environment. 😊
+          My commitment to personal growth and passion for creating impactful experiences 
+          make me ready to contribute to innovative projects and thrive in any team environment.
         </motion.p>
       </div>
+      
       <motion.div 
         ref={imageRef}
-        className="hero-image-container"
-        whileHover={{ scale: 1.05 }}
+        className="hero-image-container relative z-10"
+        whileHover={{ scale: 1.02 }}
       >
-        <img 
-          src={profilePic} 
-          alt="Samuel Onoja" 
-          className="profile-image w-48 h-48 rounded-full object-cover shadow-lg border-4 border-gray-200 dark:border-gray-700" 
-        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-violet-600 to-indigo-600 rounded-[2rem] transform rotate-6 opacity-30 dark:opacity-50 blur-lg"></div>
+        <div className="relative p-2 bg-white dark:bg-dark-surface rounded-[2rem] shadow-2xl border border-gray-100 dark:border-gray-800">
+          <img 
+            src={profilePic} 
+            alt="Samuel Onoja" 
+            className="profile-image w-64 h-64 md:w-80 md:h-80 rounded-[1.5rem] object-cover" 
+          />
+        </div>
       </motion.div>
       
     </section>
