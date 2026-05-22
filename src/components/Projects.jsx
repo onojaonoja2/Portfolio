@@ -107,7 +107,7 @@ const Projects = () => {
       description: "A premier provider of tech training, IT consultancy, and digital solutions. Offering expert web development, AI automation, and business innovation services to transform businesses.",
       link: "https://www.byteops.digital/",
       linkText: "Visit ByteOps",
-      image: "/byteOps Screen Shot.png"
+      image: "/new byteops ui.png"
     },
     {
       title: "Ekonex",
@@ -124,18 +124,18 @@ const Projects = () => {
       image: "/TestWise System.png"
     },
     {
-      title: "Customer Location Pinning App",
-      description: "Developed a real-time customer location pinning application leveraging the Google Location API to pinpoint user coordinates. Built with React and Vite for a fast frontend, and Nest.js for enhanced features.",
-      link: "https://yip-omega.vercel.app/",
-      linkText: "Location Pinning App",
-      image: "/customerlocation_screenshot.png"
+      title: "Elkris Bio Foods",
+      description: "A sugar control tracking and CRM tool built with Laravel for Elkris Bio Foods. Manages customer relationships, tracks sugar intake data, and provides insights for healthier living.",
+      link: "https://dfas.elkrisfoods.com/",
+      linkText: "Visit Elkris Bio Foods",
+      image: "/dfas_ui.png"
     },
     {
-      title: "PlanAssist",
-      description: "Engineered PlanAssist, a task management application, utilizing Next.js for a robust full-stack framework and Prisma as an ORM to interact with a PostgreSQL database hosted on Railway.",
-      link: "https://github.com/onojaonoja2/PlanAssist",
-      linkText: "PlanAssist",
-      image: "/plannAssist_screenshot.png"
+      title: "AI Interview Questions Generator",
+      description: "An AI-powered interview question generation app built with Next.js and integrated with AI APIs. Generates tailored interview questions and answers to help candidates prepare effectively.",
+      link: "https://sammy-ai-interview.vercel.app/",
+      linkText: "Try Interview Generator",
+      image: "/question_generator.png"
     },
     {
       title: "Developers Tales",

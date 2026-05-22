@@ -58,7 +58,7 @@ const Hero = () => {
     <section 
       ref={sectionRef}
       id="about" 
-      className="hero-section flex flex-col-reverse md:flex-row justify-between items-center p-8 md:p-16 mt-24 max-w-7xl mx-auto rounded-3xl relative"
+      className="hero-section flex flex-col-reverse md:flex-row justify-between items-center p-8 md:p-16 max-w-7xl mx-auto rounded-3xl relative overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-violet-400/20 dark:bg-violet-900/20 blur-[100px] rounded-full -z-10"></div>

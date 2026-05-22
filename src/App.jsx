@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import RiverAnimation from './components/RiverAnimation';
 import './index.css';
 
 function App() {
@@ -19,7 +20,10 @@ function App() {
         transition={{ duration: 0.5 }}
         className="pt-16 px-4"
       >
-        <Hero />
+        <div className="relative">
+          <RiverAnimation />
+          <Hero />
+        </div>
         <Skills />
         <Projects />
         <Contact />
