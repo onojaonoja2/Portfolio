@@ -119,7 +119,7 @@ const Projects = () => {
     {
       title: "TestWise",
       description: "A secure and intelligent online examination platform designed for smart exam management.",
-      link: "https://test-wise-r4ls.vercel.app/",
+      link: "https://testwise.byteops.digital/",
       linkText: "Visit TestWise",
       image: "/TestWise System.png"
     },
