@@ -110,11 +110,11 @@ const Projects = () => {
       image: "/new byteops ui.png"
     },
     {
-      title: "Ekonex",
-      description: "A digital education platform empowering the next generation of learners with AI-driven insights, seamless content delivery, and a variety of online courses.",
-      link: "https://ekonex.vercel.app/",
-      linkText: "Visit Ekonex",
-      image: "/Ekonex Screen.png"
+      title: "Elkris Bio Foods",
+      description: "A sugar control tracking and CRM tool built with Laravel for Elkris Bio Foods. Manages customer relationships, tracks sugar intake data, and provides insights for healthier living.",
+      link: "https://dfas.elkrisfoods.com/",
+      linkText: "Visit Elkris Bio Foods",
+      image: "/dfas_ui.png"
     },
     {
       title: "TestWise",
@@ -124,11 +124,11 @@ const Projects = () => {
       image: "/TestWise System.png"
     },
     {
-      title: "Elkris Bio Foods",
-      description: "A sugar control tracking and CRM tool built with Laravel for Elkris Bio Foods. Manages customer relationships, tracks sugar intake data, and provides insights for healthier living.",
-      link: "https://dfas.elkrisfoods.com/",
-      linkText: "Visit Elkris Bio Foods",
-      image: "/dfas_ui.png"
+      title: "Ekonex",
+      description: "A digital education platform empowering the next generation of learners with AI-driven insights, seamless content delivery, and a variety of online courses.",
+      link: "https://ekonex.vercel.app/",
+      linkText: "Visit Ekonex",
+      image: "/Ekonex Screen.png"
     },
     {
       title: "AI Interview Questions Generator",
@@ -138,11 +138,11 @@ const Projects = () => {
       image: "/question_generator.png"
     },
     {
-      title: "Developers Tales",
-      description: "Developed a dynamic news browsing application, Developers Tales, using React.js to consume and display data from the Hacker News API. Implemented features for browsing and searching developer-related content.",
-      link: "https://developerstales-6693c.web.app/",
-      linkText: "Developers Tales",
-      image: "/developer_tales_screenshots.png"
+      title: "Elkris Blog",
+      description: "A blog site for Elkris Bio Foods sharing insights on healthy living, sugar control, nutrition tips, and company updates.",
+      link: "https://blog.elkrisfoods.com/",
+      linkText: "Visit Blog",
+      image: "/blog.elkrisfoods.com screenshoot.png"
     }
   ];
 
