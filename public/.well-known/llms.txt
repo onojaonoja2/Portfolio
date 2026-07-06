@@ -1,0 +1,29 @@
+# Samuel Onoja — Fullstack Software Engineer (Abuja, Nigeria)
+> A fullstack software engineer with expertise in cloud infrastructure, AI/agentic coding, and full-stack development.
+
+## About
+Based in Abuja, Nigeria. Available for remote and on-site opportunities globally. Combines design-centric thinking with deep technical skills in frontend, backend, AI, and cloud engineering.
+
+## Skills
+- **Frontend**: React, Next.js, Vue.js, Vite, TypeScript, JavaScript, Tailwind CSS
+- **Backend**: Node.js, Express, NestJS, Laravel, Python
+- **Databases**: PostgreSQL, MongoDB, MySQL
+- **Cloud/DevOps**: AWS (Amplify, EC2, S3), Google Cloud Platform (GCP), Linux, Git
+- **AI**: AI agentic coding, LLM integration, AI-powered applications
+- **Other**: Full-stack development, system architecture, API design
+
+## Links
+- Portfolio: https://samuelonoja.vercel.app
+- LinkedIn: https://www.linkedin.com/in/samuel-onoja
+- GitHub: https://github.com/onojaonoja2
+- Twitter: https://twitter.com/samuelonoj
+- Email: samuelonoja06@gmail.com
+- Resume: https://drive.google.com/file/d/1sd-GbziNqM_XKuaRLWzlrTSANYz5ZhWX/view
+
+## Notable Projects
+- ByteOps Digital: Tech training, IT consultancy & digital solutions
+- Elkris Bio Foods: Sugar control tracking & CRM (Laravel)
+- TestWise: Secure online examination platform
+- Ekonex: AI-driven digital education platform
+- AI Interview Questions Generator: AI-powered interview prep (Next.js)
+- Elkris Blog: Healthy living & nutrition blog

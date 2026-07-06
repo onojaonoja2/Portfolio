@@ -92,9 +92,10 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed"
         >
-          A Fullstack Software Engineer who thrives on tackling complex challenges with expertise 
-          in cloud infrastructure, AI agentic coding, and creative problem-solving. I combine 
-          a design-centric mindset with a collaborative spirit to develop elegant, end-to-end solutions. 
+          A Fullstack Software Engineer based in <strong>Abuja, Nigeria</strong>, who thrives on tackling complex challenges with expertise 
+          in cloud infrastructure (<strong>AWS, GCP</strong>), <strong>AI agentic coding</strong>, and creative problem-solving. I combine 
+          a design-centric mindset with a collaborative spirit to develop elegant, end-to-end solutions 
+          for clients locally and globally.
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -103,7 +104,8 @@ const Hero = () => {
           className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed"
         >
           My commitment to personal growth and passion for creating impactful experiences 
-          make me ready to contribute to innovative projects and thrive in any team environment.
+          make me ready to contribute to innovative projects, whether remote or on-site, 
+          and thrive in any team environment.
         </motion.p>
       </div>
       
