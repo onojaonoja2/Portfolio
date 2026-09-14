@@ -1,69 +1,18 @@
 // src/components/Hero.jsx
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-const profilePic = '/Professional_head_shot.png';
-import './Hero.css';
+import { ArrowDown, Mail } from 'lucide-react';
+import { Link } from 'react-scroll';
 
-// Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+const profilePic = '/Professional_head_shot.png';
 
 const Hero = () => {
-  const sectionRef = useRef(null);
-  const textRef = useRef(null);
-  const imageRef = useRef(null);
-
-  useEffect(() => {
-    // GSAP ScrollTrigger animation
-    const section = sectionRef.current;
-    const text = textRef.current;
-    const image = imageRef.current;
-    
-    gsap.fromTo(text, 
-      { opacity: 0, x: -50 },
-      { 
-        opacity: 1, 
-        x: 0, 
-        duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-    
-    gsap.fromTo(image,
-      { opacity: 0, x: 50 },
-      { 
-        opacity: 1, 
-        x: 0, 
-        duration: 1,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-    
-    return () => {
-      // Clean up ScrollTrigger on component unmount
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
   return (
-    <section 
-      ref={sectionRef}
-      id="about" 
-      className="hero-section flex flex-col-reverse md:flex-row justify-between items-center p-8 md:p-16 max-w-7xl mx-auto rounded-3xl relative overflow-hidden"
+    <section
+      id="about"
+      className="flex flex-col-reverse md:flex-row justify-between items-center p-8 md:p-16 max-w-7xl mx-auto rounded-3xl relative overflow-hidden min-h-[80vh]"
     >
-      {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-3xl bg-violet-400/20 dark:bg-violet-900/20 blur-[100px] rounded-full -z-10"></div>
-      
-      <div className="hero-content mt-10 md:mt-0 max-w-2xl" ref={textRef}>
+      <div className="mt-10 md:mt-0 max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,54 +25,76 @@ const Hero = () => {
           </span>
           <span>Available for new opportunities</span>
         </motion.div>
-        
-        <motion.h2 
+
+        <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-gray-900 dark:text-white tracking-tight leading-tight"
         >
-          Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400">Samuel</span>
-        </motion.h2>
-        
+          Samuel Onoja
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 mt-2">
+            Full-Stack Software Engineer & Certified SAP Developer
+          </span>
+        </motion.h1>
+
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed"
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
         >
-          A Fullstack Software Engineer based in <strong>Abuja, Nigeria</strong>, who thrives on tackling complex challenges with expertise 
-          in cloud infrastructure (<strong>AWS, GCP</strong>), <strong>AI agentic coding</strong>, and creative problem-solving. I combine 
-          a design-centric mindset with a collaborative spirit to develop elegant, end-to-end solutions 
-          for clients locally and globally.
+          Full-Stack Software Engineer and Certified SAP Specialist based in{' '}
+          <strong>Abuja, Nigeria</strong>. I bridge modern web applications with enterprise systems
+          architecture — specializing in <strong>Node.js</strong>, <strong>React</strong>,{' '}
+          <strong>Next.js</strong>, <strong>Python</strong>, and{' '}
+          <strong>SAP ABAP/Fiori/HANA integrations</strong>, AI workflow automation, and resilient
+          cloud infrastructure.
         </motion.p>
-        <motion.p
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="flex flex-wrap gap-4"
         >
-          My commitment to personal growth and passion for creating impactful experiences 
-          make me ready to contribute to innovative projects, whether remote or on-site, 
-          and thrive in any team environment.
-        </motion.p>
+          <Link
+            to="projects"
+            smooth={true}
+            duration={600}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:-translate-y-0.5 transition-all cursor-pointer"
+          >
+            View My Work
+            <ArrowDown className="w-4 h-4" />
+          </Link>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={600}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:border-violet-500 hover:text-violet-600 dark:hover:border-violet-400 dark:hover:text-violet-400 hover:-translate-y-0.5 transition-all cursor-pointer"
+          >
+            <Mail className="w-4 h-4" />
+            Get In Touch
+          </Link>
+        </motion.div>
       </div>
-      
-      <motion.div 
-        ref={imageRef}
-        className="hero-image-container relative z-10"
+
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
         whileHover={{ scale: 1.02 }}
+        className="relative z-10"
       >
         <div className="absolute inset-0 bg-gradient-to-tr from-violet-600 to-indigo-600 rounded-[2rem] transform rotate-6 opacity-30 dark:opacity-50 blur-lg"></div>
         <div className="relative p-2 bg-white dark:bg-dark-surface rounded-[2rem] shadow-2xl border border-gray-100 dark:border-gray-800">
-          <img 
-            src={profilePic} 
-            alt="Samuel Onoja" 
-            className="profile-image w-64 h-64 md:w-80 md:h-80 rounded-[1.5rem] object-cover" 
+          <img
+            src={profilePic}
+            alt="Samuel Onoja"
+            className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[1.5rem] object-cover object-center"
           />
         </div>
       </motion.div>
-      
     </section>
   );
 };

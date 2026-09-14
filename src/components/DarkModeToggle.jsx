@@ -6,12 +6,10 @@ const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem('darkMode');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    console.log('Initial dark mode:', savedMode, prefersDark); // Debugging
     return savedMode === 'true' || (savedMode === null && prefersDark);
   });
 
   useEffect(() => {
-    console.log('Dark mode state updated:', darkMode); // Debugging
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {

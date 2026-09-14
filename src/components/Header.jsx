@@ -5,6 +5,14 @@ import DarkModeToggle from './DarkModeToggle';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-scroll'; // Import Link from react-scroll for smooth scrolling
 
+const NAV_ITEMS = [
+  { to: 'about', label: 'About' },
+  { to: 'skills', label: 'Skills' },
+  { to: 'certifications', label: 'Certifications' },
+  { to: 'projects', label: 'Projects' },
+  { to: 'contact', label: 'Contact' },
+];
+
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +64,7 @@ const Header = () => {
           // Mobile View with Menu Icon and Breadcrumbs
           <div className="flex items-center">
             <DarkModeToggle /> {/* Place DarkModeToggle here in mobile view */}
-            <button onClick={toggleMenu} className="text-gray-900 dark:text-white focus:outline-none ml-4">
+            <button onClick={toggleMenu} className="text-gray-900 dark:text-white focus:outline-none ml-4" aria-label="Toggle navigation menu">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
@@ -66,53 +74,25 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-full right-0 mt-2 w-48 bg-gray-800 dark:bg-dark-secondary rounded-md shadow-md overflow-hidden"
+                className="absolute top-full right-0 mt-2 w-56 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden"
               >
                 <ul className="py-2">
-                  <li>
-                    <Link
-                      to="about"
-                      smooth={true}
-                      duration={500}
-                      className="block px-4 py-2 text-white hover:bg-gray-700 dark:hover:bg-dark-primary cursor-pointer"
-                      onClick={closeMenu}
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="skills"
-                      smooth={true}
-                      duration={500}
-                      className="block px-4 py-2 text-white hover:bg-gray-700 dark:hover:bg-dark-primary cursor-pointer"
-                      onClick={closeMenu}
-                    >
-                      Tools
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="projects"
-                      smooth={true}
-                      duration={500}
-                      className="block px-4 py-2 text-white hover:bg-gray-700 dark:hover:bg-dark-primary cursor-pointer"
-                      onClick={closeMenu}
-                    >
-                      Projects
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="contact"
-                      smooth={true}
-                      duration={500}
-                      className="block px-4 py-2 text-white hover:bg-gray-700 dark:hover:bg-dark-primary cursor-pointer"
-                      onClick={closeMenu}
-                    >
-                      Contact
-                    </Link>
-                  </li>
+                  {NAV_ITEMS.map((item) => (
+                    <li key={item.to}>
+                      <Link
+                        to={item.to}
+                        spy={true}
+                        smooth={true}
+                        duration={500}
+                        offset={-80}
+                        activeClass="text-violet-600 dark:text-violet-300 bg-violet-50 dark:bg-violet-900/20"
+                        className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+                        onClick={closeMenu}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </motion.div>
             )}
@@ -121,26 +101,21 @@ const Header = () => {
           // Desktop View with Regular Links
           <div className="flex items-center space-x-8">
             <ul className="flex space-x-8">
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <Link to="about" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
-                  About
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <Link to="skills" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
-                  Tools
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <Link to="projects" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
-                  Projects
-                </Link>
-              </motion.li>
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <Link to="contact" smooth={true} duration={500} className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer">
-                  Contact
-                </Link>
-              </motion.li>
+              {NAV_ITEMS.map((item) => (
+                <motion.li key={item.to} whileHover={{ scale: 1.05 }}>
+                  <Link
+                    to={item.to}
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-80}
+                    activeClass="text-violet-600 dark:text-violet-400"
+                    className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.li>
+              ))}
             </ul>
             <DarkModeToggle />
           </div>
