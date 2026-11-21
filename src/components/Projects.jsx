@@ -9,7 +9,7 @@ const projects = [
     description: "A premier provider of tech training, IT consultancy, and digital solutions. Offering expert web development, AI automation, and business innovation services to transform businesses.",
     link: "https://www.byteops.digital/",
     linkText: "Visit ByteOps",
-    image: "/new byteops ui.png",
+    image: "/updatedbyteopsimage.png",
     tags: ["Tech Training", "IT Consultancy", "Digital Solutions", "AI Automation"]
   },
   {
