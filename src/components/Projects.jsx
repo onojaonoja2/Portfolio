@@ -93,11 +93,11 @@ const Projects = () => {
     },
     {
       title: "Reframely AI",
-      description: "An AI-powered interview preparation app built with Next.js and integrated with OpenAI APIs. Generates tailored interview questions and answers to help candidates prepare effectively.",
-      link: "https://reframe-ai-6e03.up.railway.app/",
+      description: "An AI-powered content repurposing tool that transforms long-form content into 6 platform-optimized formats — Twitter threads, Reel scripts, academic summaries, LinkedIn posts, and more — in parallel.",
+      link: "https://reframely.byteops.digital/",
       linkText: "Try Reframely AI",
       image: "/reframely_AI.png",
-      tags: ["Next.js", "OpenAI API"]
+      tags: ["Next.js", "FastAPI", "Llama 3.3"]
     },
     {
       title: "Elkris Blog",
