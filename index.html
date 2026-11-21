@@ -6,7 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#12110F" media="(prefers-color-scheme: dark)" />
+    <style>
+      html { background-color: #F3EFE6; color: #141311; }
+      html.dark { background-color: #12110F; color: #F2EDE3; }
+      html.dark #static-fallback p,
+      html.dark #static-fallback li,
+      html.dark #static-fallback footer,
+      html.dark noscript p,
+      html.dark noscript li {
+        color: #A8A096 !important;
+      }
+      html.dark #static-fallback h1,
+      html.dark #static-fallback h2,
+      html.dark #static-fallback strong,
+      html.dark noscript h1,
+      html.dark noscript h2,
+      html.dark noscript strong {
+        color: #F2EDE3 !important;
+      }
+      html.dark #static-fallback header,
+      html.dark #static-fallback footer,
+      html.dark noscript {
+        border-color: #2D2922 !important;
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('darkMode');
+          var dark = saved === 'true' || (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (error) {
+          /* ignore unavailable storage */
+        }
+      })();
+    </script>
 
     <title>Samuel Onoja | Full-Stack Software Engineer & Certified SAP Developer — Abuja, Nigeria</title>
     <meta name="description" content="Samuel Onoja is a Full-Stack Software Engineer and Certified SAP Specialist based in Abuja, Nigeria, specializing in Node.js, React, Next.js, Python, SAP ABAP/Fiori/HANA integrations, AI workflow automation, and cloud infrastructure (AWS, GCP)." />
@@ -72,6 +110,7 @@
   </head>
   <body>
     <div id="root">
+      <div id="static-fallback">
       <header style="padding: 1.25rem; text-align: center; border-bottom: 1px solid #e5e7eb;">
         <h1 style="font-size: 1.5rem; font-weight: 700;">Samuel Onoja</h1>
       </header>
@@ -95,9 +134,9 @@
             <li><strong>ByteOps Digital</strong> — Tech training, IT consultancy, and digital solutions</li>
             <li><strong>Elkris Bio Foods</strong> — Sugar control tracking and CRM tool (Laravel)</li>
             <li><strong>TestWise</strong> — Secure online examination platform</li>
-            <li><strong>Ekonex</strong> — AI-driven digital education platform</li>
-            <li><strong>Reframely AI</strong> — AI-powered interview prep (Next.js)</li>
-            <li><strong>Elkris Blog</strong> — Healthy living and nutrition blog</li>
+            <li><strong>Elkris Foods</strong> — Official e-commerce site for healthy, blood-sugar-friendly foods</li>
+            <li><strong>Learn Edmore</strong> — Online and on-site tutoring academy (Abuja)</li>
+            <li><strong>Elkris Reporting</strong> — Secure reporting portal for Elkris Bio-Health Foods</li>
           </ul>
         </section>
         <section style="margin-top: 4rem;">
@@ -109,6 +148,7 @@
       <footer style="text-align: center; padding: 2rem; border-top: 1px solid #e5e7eb; color: #6b7280;">
         &copy; 2026 Samuel Onoja. All rights reserved.
       </footer>
+      </div>
     </div>
     <noscript>
       <div style="max-width: 1280px; margin: 0 auto; padding: 2rem; font-family: sans-serif;">
@@ -121,9 +161,9 @@
           <li>ByteOps Digital — Tech training, IT consultancy, and digital solutions</li>
           <li>Elkris Bio Foods — Sugar control tracking and CRM tool</li>
           <li>TestWise — Secure online examination platform</li>
-          <li>Ekonex — AI-driven digital education platform</li>
-          <li>Reframely AI — AI-powered interview prep</li>
-          <li>Elkris Blog — Healthy living and nutrition blog</li>
+          <li>Elkris Foods — Official e-commerce site for healthy foods</li>
+          <li>Learn Edmore — Online and on-site tutoring academy (Abuja)</li>
+          <li>Elkris Reporting — Secure reporting portal for Elkris Bio-Health Foods</li>
         </ul>
         <h2>Contact</h2>
         <p>Email: samuelonoja06@gmail.com | LinkedIn: linkedin.com/in/samuel-onoja | GitHub: github.com/onojaonoja2</p>

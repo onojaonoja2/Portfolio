@@ -1,61 +1,36 @@
 // src/App.jsx
-import React, { Suspense, lazy } from 'react';
-import { motion } from 'framer-motion';
-import { Loader2 } from 'lucide-react';
+import React from 'react';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Hero from './components/Hero';
+import Projects from './components/Projects';
 import Skills from './components/Skills';
-import HeroBackground from './components/HeroBackground';
-import SectionDivider from './components/SectionDivider';
+import Certifications from './components/Certifications';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
-const Certifications = lazy(() => import('./components/Certifications'));
-const Projects = lazy(() => import('./components/Projects'));
-const Contact = lazy(() => import('./components/Contact'));
-
-const SectionLoader = () => (
-  <div className="flex justify-center items-center py-24">
-    <Loader2 className="w-8 h-8 text-violet-500 animate-spin" />
-  </div>
-);
-
-const Section = ({ children }) => (
-  <>
-    <Suspense fallback={<SectionLoader />}>{children}</Suspense>
-    <SectionDivider />
-  </>
-);
-
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors">
+    <div className="min-h-screen bg-paper text-ink">
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+
       <Header />
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="pt-16 px-4"
-      >
-        <div className="relative">
-          <HeroBackground />
-          <Hero />
-        </div>
-        <SectionDivider />
+
+      <main id="main" tabIndex={-1} className="focus:outline-none">
+        <Hero />
+        <Projects />
         <Skills />
-        <SectionDivider />
-        <Section>
-          <Certifications />
-        </Section>
-        <Section>
-          <Projects />
-        </Section>
-        <Section>
-          <Contact />
-        </Section>
-      </motion.main>
-      <Footer />
+        <Certifications />
+      </main>
+
+      <div className="closing-band border-t border-line bg-paper text-ink">
+        <Contact />
+        <Footer />
+      </div>
+
       <ScrollToTop />
     </div>
   );

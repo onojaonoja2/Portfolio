@@ -1,127 +1,219 @@
-// src/components/Header.jsx
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import DarkModeToggle from './DarkModeToggle';
+import React, { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-scroll'; // Import Link from react-scroll for smooth scrolling
-
-const NAV_ITEMS = [
-  { to: 'about', label: 'About' },
-  { to: 'skills', label: 'Skills' },
-  { to: 'certifications', label: 'Certifications' },
-  { to: 'projects', label: 'Projects' },
-  { to: 'contact', label: 'Contact' },
-];
+import DarkModeToggle from './DarkModeToggle';
+import { EMAIL, NAV_ITEMS } from '../data/site';
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
+  const menuButtonRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
-    };
+    const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(Boolean);
+    if (!sections.length) return undefined;
 
-    // Initial check
-    handleResize();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
-    // Listen for window resize events
-    window.addEventListener('resize', handleResize);
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: '-20% 0px -65% 0px', threshold: 0 }
+    );
 
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener('resize', handleResize);
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const desktopQuery = window.matchMedia('(min-width: 768px)');
+    const handleDesktop = (event) => {
+      if (event.matches) setIsMenuOpen(false);
+    };
+
+    desktopQuery.addEventListener('change', handleDesktop);
+    return () => desktopQuery.removeEventListener('change', handleDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const focusable = menuRef.current?.querySelectorAll(
+        'a[href], button:not([disabled])'
+      );
+      if (!focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isMenuOpen]);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    window.setTimeout(() => menuButtonRef.current?.focus(), 0);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleMobileNav = (id) => {
+    setIsMenuOpen(false);
+    window.setTimeout(() => {
+      document.getElementById(id)?.focus({ preventScroll: true });
+    }, 0);
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full bg-white/70 dark:bg-dark-bg/70 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-800/50 p-5 z-50 transition-colors"
-    >
-      <nav className="flex justify-between items-center max-w-7xl mx-auto px-4">
-        <motion.h1
-          whileHover={{ scale: 1.05 }}
-          onClick={scrollToTop}
-          className="text-gray-900 dark:text-white text-2xl font-bold cursor-pointer tracking-tight"
-        >
-          Samuel Onoja
-        </motion.h1>
+    <>
+      <header className="sticky top-0 z-50 border-b border-line bg-paper">
+        <div className="container-page flex h-[72px] items-center justify-between gap-6">
+          <a href="#about" className="group flex items-center gap-3" aria-label="Samuel Onoja — back to top">
+            <span className="flex h-8 w-8 items-center justify-center rounded-[2px] bg-ink font-mono text-[11px] font-medium tracking-[0.08em] text-paper transition-colors duration-200 group-hover:bg-accent">
+              SO
+            </span>
+            <span className="font-display text-xl leading-none sm:text-2xl">Samuel Onoja</span>
+          </a>
 
-        {isMobile ? (
-          // Mobile View with Menu Icon and Breadcrumbs
-          <div className="flex items-center">
-            <DarkModeToggle /> {/* Place DarkModeToggle here in mobile view */}
-            <button onClick={toggleMenu} className="text-gray-900 dark:text-white focus:outline-none ml-4" aria-label="Toggle navigation menu">
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          <div className="hidden items-center gap-8 md:flex">
+            <nav aria-label="Primary">
+              <ul className="flex items-center gap-7">
+                {NAV_ITEMS.map((item) => {
+                  const active = activeSection === item.id;
 
-            {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-full right-0 mt-2 w-56 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-lg rounded-2xl shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden"
-              >
-                <ul className="py-2">
-                  {NAV_ITEMS.map((item) => (
-                    <li key={item.to}>
-                      <Link
-                        to={item.to}
-                        spy={true}
-                        smooth={true}
-                        duration={500}
-                        offset={-80}
-                        activeClass="text-violet-600 dark:text-violet-300 bg-violet-50 dark:bg-violet-900/20"
-                        className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
-                        onClick={closeMenu}
+                  return (
+                    <li key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        aria-current={active ? 'location' : undefined}
+                        className={`eyebrow inline-flex items-center gap-2 transition-colors duration-200 hover:text-accent ${
+                          active ? 'text-accent' : 'text-muted'
+                        }`}
                       >
+                        <span
+                          className={`h-1 w-1 rounded-full bg-accent transition-opacity duration-200 ${
+                            active ? 'opacity-100' : 'opacity-0'
+                          }`}
+                          aria-hidden="true"
+                        />
                         {item.label}
-                      </Link>
+                      </a>
                     </li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-          </div>
-        ) : (
-          // Desktop View with Regular Links
-          <div className="flex items-center space-x-8">
-            <ul className="flex space-x-8">
-              {NAV_ITEMS.map((item) => (
-                <motion.li key={item.to} whileHover={{ scale: 1.05 }}>
-                  <Link
-                    to={item.to}
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-80}
-                    activeClass="text-violet-600 dark:text-violet-400"
-                    className="text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 font-medium transition-colors cursor-pointer"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
+                  );
+                })}
+              </ul>
+            </nav>
             <DarkModeToggle />
           </div>
-        )}
-      </nav>
-    </motion.header>
+
+          <div className="flex items-center gap-3 md:hidden">
+            <DarkModeToggle />
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setIsMenuOpen(true)}
+              className="flex h-9 w-9 items-center justify-center rounded-[2px] border border-line text-ink transition-colors duration-200 hover:border-accent hover:text-accent"
+              aria-label="Open navigation menu"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+            >
+              <Menu className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {isMenuOpen ? (
+        <div
+          ref={menuRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation"
+          className="fixed inset-0 z-[60] flex flex-col bg-paper text-ink md:hidden"
+        >
+          <div className="container-page flex h-[72px] shrink-0 items-center justify-between border-b border-line">
+            <span className="eyebrow text-muted">Menu</span>
+            <div className="flex items-center gap-2">
+              <DarkModeToggle />
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={closeMenu}
+                className="flex h-9 w-9 items-center justify-center rounded-[2px] border border-line text-ink transition-colors duration-200 hover:border-accent hover:text-accent"
+                aria-label="Close navigation menu"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+
+          <nav aria-label="Mobile" className="container-page flex min-h-0 flex-1 flex-col justify-center overflow-y-auto py-8">
+            <ul>
+              {NAV_ITEMS.map((item, index) => {
+                const active = activeSection === item.id;
+
+                return (
+                  <li key={item.id} className="border-b border-line first:border-t">
+                    <a
+                      href={`#${item.id}`}
+                      onClick={() => handleMobileNav(item.id)}
+                      aria-current={active ? 'location' : undefined}
+                      className={`flex items-baseline justify-between gap-4 py-5 transition-colors duration-200 hover:text-accent ${
+                        active ? 'text-accent' : 'text-ink'
+                      }`}
+                    >
+                      <span className="font-display text-4xl leading-none">{item.label}</span>
+                      <span className="font-mono text-[11px] text-muted">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          <div className="container-page pb-10 pt-6">
+            <a
+              href={`mailto:${EMAIL}`}
+              className="text-sm text-muted transition-colors duration-200 hover:text-accent"
+            >
+              {EMAIL}
+            </a>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 

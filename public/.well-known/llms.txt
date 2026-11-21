@@ -24,6 +24,7 @@ Based in Abuja, Nigeria. Available for remote and on-site opportunities globally
 - ByteOps Digital: Tech training, IT consultancy & digital solutions
 - Elkris Bio Foods: Sugar control tracking & CRM (Laravel)
 - TestWise: Secure online examination platform
-- Ekonex: AI-driven digital education platform
+- Elkris Foods: Official e-commerce site for healthy, blood-sugar-friendly foods
+- Learn Edmore: Online and on-site tutoring academy (Abuja)
 - AI Interview Questions Generator: AI-powered interview prep (Next.js)
-- Elkris Blog: Healthy living & nutrition blog
+- Elkris Reporting: Secure reporting portal for Elkris Bio-Health Foods

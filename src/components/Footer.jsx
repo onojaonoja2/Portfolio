@@ -1,70 +1,58 @@
-// src/components/Footer.jsx
-import React from 'react';
-import { Linkedin, Github, Twitter, Mail, ArrowUp } from 'lucide-react';
-import { Link } from 'react-scroll';
+import React, { useEffect, useState } from 'react';
+import { NAV_ITEMS } from '../data/site';
 
-const NAV_ITEMS = [
-  { to: 'about', label: 'About' },
-  { to: 'skills', label: 'Skills' },
-  { to: 'certifications', label: 'Certifications' },
-  { to: 'projects', label: 'Projects' },
-  { to: 'contact', label: 'Contact' },
-];
-
-const SOCIALS = [
-  { href: 'https://www.linkedin.com/in/samuel-onoja', label: 'LinkedIn', icon: <Linkedin className="w-5 h-5" /> },
-  { href: 'https://github.com/onojaonoja2', label: 'GitHub', icon: <Github className="w-5 h-5" /> },
-  { href: 'https://twitter.com/samuelonoj', label: 'Twitter', icon: <Twitter className="w-5 h-5" /> },
-  { href: 'mailto:samuelonoja06@gmail.com', label: 'Email', icon: <Mail className="w-5 h-5" /> },
-];
+const getAbujaTime = () =>
+  new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Africa/Lagos',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(new Date());
 
 const Footer = () => {
+  const [time, setTime] = useState(getAbujaTime);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => setTime(getAbujaTime()), 30000);
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
-    <footer className="bg-white/50 dark:bg-dark-surface/50 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-400 text-center py-12 transition-colors mt-16">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-6">
-        <div className="flex items-center gap-2">
-          {SOCIALS.map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 hover:-translate-y-1 transition-all"
-            >
-              {social.icon}
-            </a>
-          ))}
+    <footer className="border-t border-line">
+      <div className="container-page flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex items-center gap-3">
+          <span className="flex h-7 w-7 items-center justify-center rounded-[2px] bg-ink font-mono text-[10px] tracking-[0.08em] text-paper">
+            SO
+          </span>
+          <div>
+            <p className="font-display text-lg leading-none">Samuel Onoja</p>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted">
+              Full-stack engineer
+            </p>
+          </div>
         </div>
 
-        <nav>
-          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <nav aria-label="Footer">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {NAV_ITEMS.map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  smooth={true}
-                  duration={500}
-                  offset={-80}
-                  className="text-sm font-medium hover:text-violet-600 dark:hover:text-violet-400 transition-colors cursor-pointer"
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className="eyebrow text-muted transition-colors duration-200 hover:text-accent"
                 >
                   {item.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Back to top"
-          className="inline-flex items-center gap-1.5 text-sm font-medium hover:text-violet-600 dark:hover:text-violet-400 transition-colors cursor-pointer"
-        >
-          <ArrowUp className="w-4 h-4" />
-          Back to Top
-        </button>
-
-        <p className="font-medium text-sm">&copy; {new Date().getFullYear()} Samuel Onoja. All rights reserved.</p>
+        <div className="flex flex-col gap-2 text-left lg:text-right">
+          <p className="eyebrow text-muted">Abuja, NG — {time} WAT</p>
+          <p className="text-xs text-muted">
+            &copy; {new Date().getFullYear()} Samuel Onoja. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

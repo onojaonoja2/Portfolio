@@ -8,27 +8,25 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
       colors: {
-        'dark-bg': '#0B0F19',
-        'dark-surface': '#1A1F2C',
-        'dark-border': '#2D3748',
-        violet: {
-          400: '#9F7AEA',
-          600: '#805AD5',
-          800: '#553C9A',
-        },
-        indigo: {
-          400: '#7F9CF5',
-          600: '#5A67D8',
-          800: '#434190',
-        }
+        paper: 'rgb(var(--paper) / <alpha-value>)',
+        ink: 'rgb(var(--ink) / <alpha-value>)',
+        surface: 'rgb(var(--surface) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        line: 'rgb(var(--line) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      }
+      fontFamily: {
+        sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Instrument Serif', 'ui-serif', 'Georgia', 'serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
+      },
+      maxWidth: {
+        page: '1240px',
+      },
+      transitionTimingFunction: {
+        editorial: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
     },
   },
   plugins: [],
